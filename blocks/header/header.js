@@ -1,4 +1,4 @@
-import { getMetadata } from '../../scripts/aem.js';
+import { fetchPlaceholders, getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
@@ -103,6 +103,71 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+function getDirectTextContent(menuItem) {
+  const menuLink = menuItem.querySelector(':scope > a');
+  if (menuLink) {
+    return menuLink.textContent.trim();
+  }
+  return Array.from(menuItem.childNodes)
+    .filter((n) => n.nodeType === Node.TEXT_NODE)
+    .map((n) => n.textContent)
+    .join(' ');
+}
+
+async function buildBreadcrumbsFromNavTree(nav, currentUrl) {
+  const crumbs = [];
+
+  const homeUrl = document.querySelector('.nav-brand a[href]').href;
+
+  let menuItem = Array.from(nav.querySelectorAll('a')).find((a) => a.href === currentUrl);
+  if (menuItem) {
+    do {
+      const link = menuItem.querySelector(':scope > a');
+      crumbs.unshift({ title: getDirectTextContent(menuItem), url: link ? link.href : null });
+      menuItem = menuItem.closest('ul')?.closest('li');
+    } while (menuItem);
+  } else if (currentUrl !== homeUrl) {
+    crumbs.unshift({ title: getMetadata('og:title'), url: currentUrl });
+  }
+
+  const placeholders = await fetchPlaceholders();
+  const homePlaceholder = placeholders.breadcrumbsHomeLabel || 'Home';
+
+  crumbs.unshift({ title: homePlaceholder, url: homeUrl });
+
+  // last link is current page and should not be linked
+  if (crumbs.length > 1) {
+    crumbs[crumbs.length - 1].url = null;
+  }
+  crumbs[crumbs.length - 1]['aria-current'] = 'page';
+  return crumbs;
+}
+
+async function buildBreadcrumbs() {
+  const breadcrumbs = document.createElement('nav');
+  breadcrumbs.className = 'breadcrumbs';
+
+  const crumbs = await buildBreadcrumbsFromNavTree(document.querySelector('.nav-sections'), document.location.href);
+
+  const ol = document.createElement('ol');
+  ol.append(...crumbs.map((item) => {
+    const li = document.createElement('li');
+    if (item['aria-current']) li.setAttribute('aria-current', item['aria-current']);
+    if (item.url) {
+      const a = document.createElement('a');
+      a.href = item.url;
+      a.textContent = item.title;
+      li.append(a);
+    } else {
+      li.textContent = item.title;
+    }
+    return li;
+  }));
+
+  breadcrumbs.append(ol);
+  return breadcrumbs;
+}
+
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -146,6 +211,14 @@ export default async function decorate(block) {
     });
   }
 
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    const search = navTools.querySelector('a[href*="search"]');
+    if (search && search.textContent === '') {
+      search.setAttribute('aria-label', 'Search');
+    }
+  }
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
@@ -163,4 +236,49 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
+    navWrapper.append(await buildBreadcrumbs());
+  }
+
 }
+ // Top Menu Navigation for Main Store and USD - 15-12-2024 //
+
+
+const navBar = document.createElement('div');
+// navBar.style.backgroundColor = '#ccc';
+// navBar.style.display = 'flex';
+// navBar.style.justifyContent = 'flex-end';
+// navBar.style.color = '#000';
+// navBar.style.alignItems = 'center';
+// navBar.style.padding = '8px';
+// navBar.style.fontSize = '14px';
+// navBar.style.cursor = 'pointer';
+// navBar.style.link = '###';
+// navBar.style.position = 'fixed';
+// navBar.style.zIndex = '1000';
+// navBar.style.width = '99%';
+// navBar.style.marginBottom = '10px';
+// navBar.style.alignItems = 'right'
+navBar.className = 'navbar';
+const menuText = "Main Website Store - Default Store | $ USD"
+
+// Created top menu bar text Elements //
+const menuElement =  document.createElement('div');
+    menuElement.textContent =  menuText;
+    menuElement.style.color ='#000';
+
+
+ navBar.appendChild(menuElement);
+ document.body.insertBefore(navBar, document.body.firstChild);
+
+
+// menuItems.forEach((item) => {
+//   const menuItem = document.createElement('a');
+//   menuItem.href = item.link;
+//   menuItem.textContent = item.text;
+//   menuItem.style.color = 'white';
+//   menuItem.style.textDecoration = 'none';
+//   leftMenu.appendChild(menuItem);
+// });
+

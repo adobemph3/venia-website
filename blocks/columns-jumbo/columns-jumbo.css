@@ -1,0 +1,81 @@
+.columns-jumbo > div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .columns-jumbo img {
+    width: 100%;
+  }
+  
+  .columns-jumbo > div > div {
+    order: 1;
+  }
+  
+  .columns-jumbo > div > .columns-jumbo-img-col {
+    order: 0;
+  }
+  
+  .columns-jumbo > div > .columns-jumbo-img-col img {
+    display: block;
+  }
+  
+  @media (width >= 900px) {
+    .columns-jumbo > div {
+      align-items: center;
+      flex-direction: unset;
+      gap: 15px;
+    }
+  
+    .columns-jumbo > div > div {
+      /* flex: 1; */
+      order: unset;
+    }
+
+    .columns-jumbo > div > div:nth-child(2){
+       background-color: #000;
+       width:410px;
+       min-height:350px;
+       color: #fff;
+       justify-content: center;
+       align-items: center;
+       padding-top: 143px;
+       margin-left:0;
+    }
+
+    #shop-summer a:link{
+        color:#fff;
+        margin-top: 0px;
+    }
+  }
+  
+  .columns-jumbo-wrapper{
+    text-align: center;
+  }
+  
+  #make-a-statement-in{
+    font-size: 3em; line-height:18px; text-align: center  ;
+  }
+  
+  #signature-heels{
+    font-size: 3em; text-align: center  ;
+   
+  }
+  
+  .columns-jumbo-wrapper .columns-jumbo .block .columns-jumbo-2-cols div h2{
+    text-align: center; text-transform: uppercase;
+  }
+  
+  .columns-jumbo .block .columns-jumbo-2-cols{
+    text-transform: uppercase;
+  }
+  .columns-jumbo-wrapper .button-container a:link{
+    background: none;
+    color: #000;
+    text-decoration: underline;
+  }
+  
+  .columns-jumbo-wrapper p{
+    font-size: 14px;
+  }
+  
+  

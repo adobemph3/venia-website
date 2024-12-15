@@ -30,4 +30,43 @@
     flex: 1;
     order: unset;
   }
+  
+}
+
+
+.columns-wrapper{
+  text-align: center;
+}
+
+#make-a-statement-in{
+  font-size: 3em; line-height:18px; text-align: center  ;
+}
+
+#signature-heels{
+  font-size: 3em; text-align: center  ;
+ 
+}
+
+.columns-wrapper .columns .block .columns-2-cols div h3 p{
+  text-align: center;
+}
+
+.columns-wrapper .button-container a:link{
+  background: none;
+  color: #000;
+  text-decoration: underline;
+}
+
+.columns-wrapper p{
+  font-size: 14px;
+}
+
+.text-over-image .columns>div>div:last-child {
+  text-align: center;
+  background-color: rgb(27 37 44);
+  color: #f8f8f8;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

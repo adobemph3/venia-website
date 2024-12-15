@@ -1,0 +1,68 @@
+.footer-section-wrapper{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+}
+
+.footer-section-wrapper ul{
+    display: flex;
+    list-style: none;
+    margin: 0px;
+    padding:0px;
+}
+
+.footer-section-wrapper ul li{
+    margin-right: 6px;
+    width:100%;
+    line-height: 26px;
+}
+
+
+.footer-section-wrapper ul > li > ul {
+    display: inline;
+}
+
+.footer-section-wrapper ul > li > ul >li > ul{
+    margin-top: 1rem;
+    display: flex;
+    align-items: right;
+}
+
+.footer-section-wrapper ul > li > ul >li > ul>li{
+    cursor: pointer;
+    width: 38%;
+}
+
+
+.footer-section-wrapper ul > li> span .icon{
+    display: flex;
+    margin-right: 0px;
+    width:20%;
+}
+
+.footer-section-wrapper .icon .icon-logo-icon .icon img{
+    width:20px;
+    height: auto;
+    width:100px;
+}
+
+.icon-logo-icon{
+    width:135px;
+}
+
+
+.footer-wrapper .cards-wrapper .cards > ul > li{
+   display:inline-grid;
+   background-color: #fff;
+}
+.footer-wrapper .cards-wrapper .cards > ul > li{
+    border: none;
+    background: none;
+    margin: 0px 36px;
+    text-align: center;
+    width: 160%;
+    line-height: 50px;
+}
+.footer-section-wrapper .cards-wrapper .cards > ul{
+    display: block;
+}
