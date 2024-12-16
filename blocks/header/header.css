@@ -297,17 +297,16 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 8px 0;
   }
-}
 
-/* tools */
+  /* tools */
 header nav .nav-tools {
   grid-area: tools;
   width: 100%;
 }
 
 header nav .nav-tools p{
-  display: inline-block;
-  padding: 5px 8px;
+  display: inline-flex;
+  padding: 20px 8px;
   line-height: 20px;
   text-align: center;
 }
@@ -326,3 +325,7 @@ header nav .nav-tools p{
   width : 99%;
   margin-bottom :10px;
 }
+
+  
+}
+
