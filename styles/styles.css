@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-:root {
+ :root {
   /* colors */
   --background-color: white;
   --light-color: #f8f8f8;
@@ -20,8 +20,13 @@
   --link-hover-color: #1d3ecf;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+
+  /* --body-font-family: roboto, roboto-fallback, sans-serif; */
+
+  --body-font-family:'Muli', sans-serif;
+  --heading-font-family:'Muli', sans-serif;
+
+  /* --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif; */
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -155,9 +160,15 @@ button {
 
 /* links */
 a:any-link {
-  color: var(--link-color);
+  /* color: var(--link-color);
   text-decoration: none;
-  word-break: break-word;
+  word-break: break-word; */
+
+  background-color: transparent;
+  color: #000;
+  margin: 0;
+  padding: unset;
+  text-decoration: underline
 }
 
 a:hover {
@@ -227,6 +238,16 @@ main img {
   width: 100%;
 }
 
+.icon-logo{
+  width: 175px;
+  margin-right: 30px;
+}
+
+.icon-search{
+  /* margin-left: 30px; */
+
+}
+
 /* sections */
 main > .section {
   margin: 40px 0;
@@ -248,10 +269,19 @@ main > .section:first-of-type {
   }
 }
 
+@media (width <= 800px){
+  main > .section.carousel-container {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 /* section metadata */
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
+  /* background-color: var(--light-color); */
   margin: 0;
   padding: 40px 0;
 }
