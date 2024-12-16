@@ -44,7 +44,7 @@
 
     #shop-summer a:link{
         color:#fff;
-        margin-top: 0px;
+        margin-top: 0;
     }
   }
   
@@ -68,6 +68,7 @@
   .columns-jumbo .block .columns-jumbo-2-cols{
     text-transform: uppercase;
   }
+
   .columns-jumbo-wrapper .button-container a:link{
     background: none;
     color: #000;

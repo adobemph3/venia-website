@@ -240,10 +240,8 @@ export default async function decorate(block) {
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     navWrapper.append(await buildBreadcrumbs());
   }
-
 }
- // Top Menu Navigation for Main Store and USD - 15-12-2024 //
-
+// Top Menu Navigation for Main Store and USD - 15-12-2024 //
 
 const navBar = document.createElement('div');
 // navBar.style.backgroundColor = '#ccc';
@@ -261,17 +259,15 @@ const navBar = document.createElement('div');
 // navBar.style.marginBottom = '10px';
 // navBar.style.alignItems = 'right'
 navBar.className = 'navbar';
-const menuText = "Main Website Store - Default Store | $ USD"
+const menuText = 'Main Website Store - Default Store | $ USD';
 
 // Created top menu bar text Elements //
-const menuElement =  document.createElement('div');
-    menuElement.textContent =  menuText;
-    menuElement.style.color ='#000';
+const menuElement = document.createElement('div');
+menuElement.textContent = menuText;
+menuElement.style.color = '#000';
 
-
- navBar.appendChild(menuElement);
- document.body.insertBefore(navBar, document.body.firstChild);
-
+navBar.appendChild(menuElement);
+document.body.insertBefore(navBar, document.body.firstChild);
 
 // menuItems.forEach((item) => {
 //   const menuItem = document.createElement('a');
@@ -281,4 +277,3 @@ const menuElement =  document.createElement('div');
 //   menuItem.style.textDecoration = 'none';
 //   leftMenu.appendChild(menuItem);
 // });
-

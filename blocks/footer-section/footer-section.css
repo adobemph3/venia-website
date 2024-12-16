@@ -7,8 +7,8 @@
 .footer-section-wrapper ul{
     display: flex;
     list-style: none;
-    margin: 0px;
-    padding:0px;
+    margin: 0;
+    padding:0;
 }
 
 .footer-section-wrapper ul li{
@@ -36,12 +36,11 @@
 
 .footer-section-wrapper ul > li> span .icon{
     display: flex;
-    margin-right: 0px;
+    margin-right: 0;
     width:20%;
 }
 
 .footer-section-wrapper .icon .icon-logo-icon .icon img{
-    width:20px;
     height: auto;
     width:100px;
 }
@@ -53,16 +52,14 @@
 
 .footer-wrapper .cards-wrapper .cards > ul > li{
    display:inline-grid;
-   background-color: #fff;
+   border: none;
+   background: none;
+   margin: 0 36px;
+   text-align: center;
+   width: 160%;
+   line-height: 50px;
 }
-.footer-wrapper .cards-wrapper .cards > ul > li{
-    border: none;
-    background: none;
-    margin: 0px 36px;
-    text-align: center;
-    width: 160%;
-    line-height: 50px;
-}
+
 .footer-section-wrapper .cards-wrapper .cards > ul{
     display: block;
 }

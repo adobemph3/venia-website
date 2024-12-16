@@ -160,6 +160,7 @@ header nav .nav-brand img {
 /* sections */
 header nav .nav-sections {
   grid-area: sections;
+
   /* flex: 1 1 auto; */
   display: none;
   visibility: hidden;
@@ -204,7 +205,8 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .nav-drop {
-    /** removed position relative to apply the submenu drop down for the full width**/
+    /** removed position relative to apply the submenu drop down for the full width **/
+
     /* position: relative; */
     padding-right: 16px;
     cursor: pointer;
@@ -233,8 +235,9 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections ul {
     display: flex;
+
     /* gap: 25px; */
-    gap:0px;
+    gap:0;
     margin: 0;
   }
 
@@ -244,6 +247,7 @@ header nav .nav-sections ul > li > ul > li {
     font-size: 14px;
 
   }
+
   .section .nav-tools div > p span{
     display: grid;
   }
@@ -251,6 +255,7 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
+
     /* position: relative; */
     padding: 0 20px;
   }
@@ -258,16 +263,18 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
     display: none;
     border-top: 1px solid #ccc;
+
     /* position: relative; */
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
     /* display: block; */
     position: absolute;
-    left:0px;
+    left:0;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+
     /* min-height: 150px; */
     top: 100%;
     padding: 16px;

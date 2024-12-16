@@ -47,6 +47,10 @@
  
 }
 
+.columns-wrapper p{
+  font-size: 14px;
+}
+
 .columns-wrapper .columns .block .columns-2-cols div h3 p{
   text-align: center;
 }
@@ -55,10 +59,6 @@
   background: none;
   color: #000;
   text-decoration: underline;
-}
-
-.columns-wrapper p{
-  font-size: 14px;
 }
 
 .text-over-image .columns>div>div:last-child {

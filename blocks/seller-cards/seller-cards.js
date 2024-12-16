@@ -1,7 +1,6 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
 export default function decorate(block) {
-
   const carts = document.createElement('carts');
   carts.className = 'carousel-carts';
 
@@ -17,8 +16,6 @@ export default function decorate(block) {
     carts.append(item);
     return item;
   });
-
-
 
   carts.querySelectorAll('picture > img').forEach((img) => img
     .closest('picture')
@@ -70,12 +67,9 @@ export default function decorate(block) {
       currentIndex + itemsPerPage >= items.length,
     );
 
-    updateDots();
+    // updateDots();
   };
 
-  const stopAutoSlide = () => {
-    clearInterval(autoSlideInterval);
-  };
   const slideNext = () => {
     if (currentIndex + itemsPerPage < items.length) {
       currentIndex += itemsPerPage;
@@ -83,6 +77,10 @@ export default function decorate(block) {
       currentIndex = 0;
     }
     updateCarousel();
+  };
+
+  const stopAutoSlide = () => {
+    clearInterval(autoSlideInterval);
   };
   const startAutoSlide = () => {
     stopAutoSlide();
@@ -98,11 +96,13 @@ export default function decorate(block) {
       if (i === Math.floor(currentIndex / itemsPerPage)) {
         dot.classList.add('active');
       }
-      dot.addEventListener('click', () => {
-        currentIndex = i * itemsPerPage;
-        updateCarousel();
-        startAutoSlide();
-      });
+
+      // dot.addEventListener('click', () => {
+      //   currentIndex = i * itemsPerPage;
+      //   updateCarousel();
+      //   startAutoSlide();
+      // });
+
       carouselDots.append(dot);
     }
   };

@@ -24,14 +24,6 @@
   gap: 20px;
 }
 
-.seller-cards .carousel-dots button:hover,
-button:focus {
-  background-color:#000 ;
-}
-
-.cards .carousel-dots .active {
-  background-color: #131313;
-}
 
 .carousel-buttons {
   display: flex;
@@ -39,10 +31,6 @@ button:focus {
   margin-top: 10px;
 }
 
-.carousel-prev,
-.carousel-next {
-  display: none;
-}
 
 .carousel-dots button {
   width: 15px;
@@ -52,6 +40,20 @@ button:focus {
   background-color: #dadada;
   transition: background-color 0.3s ease;
 }
+
+.seller-cards .carousel-dots button:focus button:hover {
+  background-color:#000 ;
+}
+
+.cards .carousel-dots .active {
+  background-color: #131313;
+}
+
+.carousel-prev,
+.carousel-next {
+  display: none;
+}
+
 
 .seller-cards>ul {
   list-style: none;
@@ -75,15 +77,16 @@ button:focus {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-}
 
-#top-sellers-{
+/* }
+
+#top-sellers- {
   text-align: center;
   color: #4d4d4d;
   align-items: center;
   font-size:2em;
   font-weight: 300;
-}
+} */
 
 .seller-cards .carousel-image{
   width: 180px;
@@ -102,7 +105,8 @@ button:focus {
   padding: 5px 10px;
   font-size: small;
 }
-@media screen and (max-width: 900px) {
+
+@media screen and (width <= 900px) {
   .carousel-seller-cards ul {
       display: flex;
       gap: 20px;
@@ -111,10 +115,12 @@ button:focus {
       margin-bottom: 20px;
       font-size: 12px;
   }
+
   .carousel-seller-cards ul li {
       min-width: 41vw;
   }
+
   .carousel-seller-cards ul li img {
       width: 100%;
   }
-}
+}}
