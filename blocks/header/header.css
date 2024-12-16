@@ -245,7 +245,9 @@ header nav .nav-sections ul > li > ul > li {
     display: inline-flex;
     color:#000;
     font-size: 14px;
-
+    padding: 20px 8px;
+    line-height: 20px;
+    text-align: center;
   }
 
   .section .nav-tools div > p span{
@@ -297,19 +299,11 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 8px 0;
   }
-}
 
-/* tools */
+  /* tools */
 header nav .nav-tools {
   grid-area: tools;
   width: 100%;
-}
-
-header nav .nav-tools p{
-  display: inline-block;
-  padding: 5px 8px;
-  line-height: 20px;
-  text-align: center;
 }
 
 /*** CSS for Top Menu Nav Bar  ***/
@@ -326,3 +320,7 @@ header nav .nav-tools p{
   width : 99%;
   margin-bottom :10px;
 }
+
+  
+}
+
