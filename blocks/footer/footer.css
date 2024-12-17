@@ -55,15 +55,9 @@ footer .footer>div .default-content-wrapper>ul>li>ul>li span{
   width: 102px;
 }
 
-footer .footer>div .default-content-wrapper>ul>li:last-child>ul>li:last-child{
-  border: 2px solid black;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  text-align: end;
-}
-
-@media (width >=900px) {
-  footer .footer>div {
-    padding: 40px 32px 24px;
+  @media (width >=900px) {
+    footer .footer>div {
+      padding: 40px 32px 24px;
   }
+
 }

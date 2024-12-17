@@ -240,40 +240,17 @@ export default async function decorate(block) {
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     navWrapper.append(await buildBreadcrumbs());
   }
+
+  // Top Menu Navigation for Main Store and USD - 15-12-2024 //
+  const navBar = document.createElement('div');
+  navBar.className = 'navbar';
+  const menuText = 'Main Website Store - Default Store | $ USD';
+
+  // Created top menu bar text Elements //
+  const menuElement = document.createElement('div');
+  menuElement.textContent = menuText;
+  menuElement.style.color = '#000';
+
+  navBar.appendChild(menuElement);
+  document.body.insertBefore(navBar, document.body.firstChild);
 }
-// Top Menu Navigation for Main Store and USD - 15-12-2024 //
-
-const navBar = document.createElement('div');
-// navBar.style.backgroundColor = '#ccc';
-// navBar.style.display = 'flex';
-// navBar.style.justifyContent = 'flex-end';
-// navBar.style.color = '#000';
-// navBar.style.alignItems = 'center';
-// navBar.style.padding = '8px';
-// navBar.style.fontSize = '14px';
-// navBar.style.cursor = 'pointer';
-// navBar.style.link = '###';
-// navBar.style.position = 'fixed';
-// navBar.style.zIndex = '1000';
-// navBar.style.width = '99%';
-// navBar.style.marginBottom = '10px';
-// navBar.style.alignItems = 'right'
-navBar.className = 'navbar';
-const menuText = 'Main Website Store - Default Store | $ USD';
-
-// Created top menu bar text Elements //
-const menuElement = document.createElement('div');
-menuElement.textContent = menuText;
-menuElement.style.color = '#000';
-
-navBar.appendChild(menuElement);
-document.body.insertBefore(navBar, document.body.firstChild);
-
-// menuItems.forEach((item) => {
-//   const menuItem = document.createElement('a');
-//   menuItem.href = item.link;
-//   menuItem.textContent = item.text;
-//   menuItem.style.color = 'white';
-//   menuItem.style.textDecoration = 'none';
-//   leftMenu.appendChild(menuItem);
-// });
