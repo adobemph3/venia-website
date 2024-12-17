@@ -55,15 +55,20 @@ footer .footer>div .default-content-wrapper>ul>li>ul>li span{
   width: 102px;
 }
 
-footer .footer>div .default-content-wrapper>ul>li:last-child>ul>li:last-child{
-  border: 2px solid black;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  text-align: end;
-}
 
+.footer-section-wrapper div:nth-child(2) > ul>li:nth-child(5) >ul>li:nth-last-child(){
+  width:200px;
+  padding: 5px 10px;
+  line-height: 18px;
+  border-radius: 2px solid #ccc;
+  border-radius: 11px 11px 11px 11px;
+  -webkit-border-radius: 11px 11px 11px 11px;
+  -moz-border-radius: 11px 11px 11px 11px;
+}
 @media (width >=900px) {
   footer .footer>div {
     padding: 40px 32px 24px;
   }
+
+  
 }
