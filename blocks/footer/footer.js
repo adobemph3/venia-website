@@ -12,8 +12,6 @@ export default async function decorate(block) {
   // }
   // if(parentLi) parentLi.style.backgroundColor = 'yellow';
 
-
-  
   // load footer as fragment
   const footerMeta = getMetadata('footer');
   const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';

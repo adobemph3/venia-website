@@ -246,7 +246,7 @@ export default async function decorate(block) {
   navBar.className = 'navbar';
   const menuText = 'Main Website Store - Default Store | $ USD';
 
-// Created top menu bar text Elements //
+  // Created top menu bar text Elements //
   const menuElement = document.createElement('div');
   menuElement.textContent = menuText;
   menuElement.style.color = '#000';
@@ -254,5 +254,3 @@ export default async function decorate(block) {
   navBar.appendChild(menuElement);
   document.body.insertBefore(navBar, document.body.firstChild);
 }
-
-
