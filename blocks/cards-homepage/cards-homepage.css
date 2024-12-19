@@ -111,3 +111,9 @@
 }
 
 }
+
+@media (width <=800px){
+  .cards-homepage > ul {
+    grid-template-columns: auto;
+  }
+}

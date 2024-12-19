@@ -183,3 +183,27 @@
     background-color: transparent;
   }
 }
+
+/**** Css for resposniveness for Mobile 400resolution to 789 ****/
+
+
+@media(width <= 800px){
+  .carousel .carousel-slide .carousel-slide-image picture > img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  #shop-the-new-outerwear-collection{
+    font: 2rem;
+  }
+}
+
+/* @media screen and (min-width:400px) and (max-width:800px){
+  .carousel .carousel-slide .carousel-slide-image picture > img{
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+  }
+} */
+  

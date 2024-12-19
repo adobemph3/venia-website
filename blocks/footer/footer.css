@@ -58,6 +58,11 @@ footer .footer>div .default-content-wrapper>ul>li>ul>li span{
   @media (width >=900px) {
     footer .footer>div {
       padding: 40px 32px 24px;
+      grid-template-columns: repeat(6,minmax(0, 1fr));
+
   }
+  
+  
 
 }
+
