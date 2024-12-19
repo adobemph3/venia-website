@@ -10,18 +10,22 @@ export default function decorate(block) {
     while (row.firstElementChild) item.append(row.firstElementChild);
 
     Array.from(item.children).forEach((div) => {
-      div.className = div.querySelector('picture') ? 'carousel-image' : 'carousel-body';
+      div.className = div.querySelector('picture')
+        ? 'carousel-image'
+        : 'carousel-body';
     });
 
     carts.append(item);
     return item;
   });
 
-  carts.querySelectorAll('picture > img').forEach((img) => img
-    .closest('picture')
-    .replaceWith(
-      createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]),
-    ));
+  carts
+    .querySelectorAll('picture > img')
+    .forEach((img) => img
+      .closest('picture')
+      .replaceWith(
+        createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]),
+      ));
 
   block.textContent = '';
 
@@ -66,8 +70,34 @@ export default function decorate(block) {
       'disabled',
       currentIndex + itemsPerPage >= items.length,
     );
+  };
 
-    // updateDots();
+  const handleDotClick = (pageIndex) => {
+    currentIndex = pageIndex * itemsPerPage;
+    updateCarousel();
+  };
+
+  const updateDots = () => {
+    carouselDots.innerHTML = '';
+    const pages = Math.ceil(items.length / itemsPerPage);
+    for (let i = 0; i < pages; i += 1) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot';
+      if (i === Math.floor(currentIndex / itemsPerPage)) {
+        dot.classList.add('active');
+      }
+
+      // dot.addEventListener('click', ((pageIndex) => () => {
+      //   currentIndex = pageIndex * itemsPerPage;
+      //   updateCarousel();
+      // })(i));
+
+      dot.addEventListener('click', () => handleDotClick(i));
+      // carouselDot(i)
+
+      carouselDots.append(dot);
+    }
+    updateDots();
   };
 
   const slideNext = () => {
@@ -87,26 +117,7 @@ export default function decorate(block) {
     autoSlideInterval = setInterval(slideNext, slideInterval);
   };
 
-  const updateDots = () => {
-    carouselDots.innerHTML = '';
-    const pages = Math.ceil(items.length / itemsPerPage);
-    for (let i = 0; i < pages; i += 1) {
-      const dot = document.createElement('button');
-      dot.className = 'carousel-dot';
-      if (i === Math.floor(currentIndex / itemsPerPage)) {
-        dot.classList.add('active');
-      }
-
-      // dot.addEventListener('click', () => {
-      //   currentIndex = i * itemsPerPage;
-      //   updateCarousel();
-      //   startAutoSlide();
-      // });
-
-      carouselDots.append(dot);
-    }
-  };
-
+  startAutoSlide();
   const updateItemsPerPage = () => {
     itemsPerPage = window.innerWidth >= 900 ? 5 : 2;
     updateDots();
