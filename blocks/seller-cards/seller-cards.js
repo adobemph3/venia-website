@@ -67,8 +67,28 @@ export default function decorate(block) {
       currentIndex + itemsPerPage >= items.length,
     );
 
-    // updateDots();
+    updateDots();
   };
+  const updateDots = () => {
+    carouselDots.innerHTML = '';
+    const pages = Math.ceil(items.length / itemsPerPage);
+    for (let i = 0; i < pages; i += 1) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot';
+      if (i === Math.floor(currentIndex / itemsPerPage)) {
+        dot.classList.add('active');
+      }
+
+      dot.addEventListener('click', () => {
+        currentIndex = i * itemsPerPage;
+        updateCarousel();
+        startAutoSlide();
+      });
+
+      carouselDots.append(dot);
+    }
+  };
+
 
   const slideNext = () => {
     if (currentIndex + itemsPerPage < items.length) {
@@ -87,25 +107,25 @@ export default function decorate(block) {
     autoSlideInterval = setInterval(slideNext, slideInterval);
   };
 
-  const updateDots = () => {
-    carouselDots.innerHTML = '';
-    const pages = Math.ceil(items.length / itemsPerPage);
-    for (let i = 0; i < pages; i += 1) {
-      const dot = document.createElement('button');
-      dot.className = 'carousel-dot';
-      if (i === Math.floor(currentIndex / itemsPerPage)) {
-        dot.classList.add('active');
-      }
+  // const updateDots = () => {
+  //   carouselDots.innerHTML = '';
+  //   const pages = Math.ceil(items.length / itemsPerPage);
+  //   for (let i = 0; i < pages; i += 1) {
+  //     const dot = document.createElement('button');
+  //     dot.className = 'carousel-dot';
+  //     if (i === Math.floor(currentIndex / itemsPerPage)) {
+  //       dot.classList.add('active');
+  //     }
 
-      // dot.addEventListener('click', () => {
-      //   currentIndex = i * itemsPerPage;
-      //   updateCarousel();
-      //   startAutoSlide();
-      // });
+  //     dot.addEventListener('click', () => {
+  //       currentIndex = i * itemsPerPage;
+  //       updateCarousel();
+  //       startAutoSlide();
+  //     });
 
-      carouselDots.append(dot);
-    }
-  };
+  //     carouselDots.append(dot);
+  //   }
+  // };
 
   const updateItemsPerPage = () => {
     itemsPerPage = window.innerWidth >= 900 ? 5 : 2;
